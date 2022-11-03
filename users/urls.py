@@ -9,4 +9,4 @@ urlpatterns = [
     path('create/', UserCreateView.as_view()),
     path('<int:pk>/delete/', UserDeleteView.as_view()),
 
-    ]
+]
