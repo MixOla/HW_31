@@ -2,7 +2,14 @@ from rest_framework import serializers
 
 from users.models import User, Location
 
+def validate_birthdate(self, date):
+    year = int(date.split("-"))
+    if year[:4] > 2011:
+        raise serializers.ValidationError("Запрещено регистрироваться пользователям младше 9 лет")
+    return date
+
 class UserCreateSerializer(serializers.ModelSerializer):
+
     location = serializers.SlugRelatedField(required=False,
                                             queryset=Location.objects.all(),
                                             many=True, slug_field="name")

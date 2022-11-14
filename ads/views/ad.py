@@ -16,7 +16,7 @@ def root(request):
 
 
 from ads.models import Ad
-from ads.serializers import AdSerializer, AdDetailSerializer
+from ads.serializers import *
 from rest_framework.viewsets import ModelViewSet
 
 
@@ -25,6 +25,7 @@ class AdViewSet(ModelViewSet):
     default_serializer = AdSerializer
     serializer_classes = {
         "retrieve": AdDetailSerializer,
+        "create": AdCreateSerializer
     }
 
     default_permission = [AllowAny()]
