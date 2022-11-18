@@ -37,7 +37,7 @@ class User(AbstractUser):
                                                          message="Регистрация с домена rambler запрещена")])
 
     def save(self, *args, **kwargs):
-        self.set_password(self.password)
+        # self.set_password(self.password)
         super().save(*args, **kwargs)
 
     class Meta:
